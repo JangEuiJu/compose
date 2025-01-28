@@ -52,23 +52,23 @@ jobs:
                 docker build -t jangeuiju/demo_frontend ./frontend
                 docker push jangeuiju/demo_frontend
 
-#            # eC2 서버로 필요 파일 업로드(YML, nginx/*.conf)
-#            # Ec2 생성 -> 탄력적 ip 연결 > 활성화 이후
-#            # EC2 접속
-#            # docker-compose.yml, ./nginx/default.conf 업로드
-#            # 타겟 : /home/ubuntu
-#            - name: EC2 서버로 필요 파일 업로드
-#              uses: appleboy/scp-action@v0.1.7
-#              # 업로드 대상이 n개이면 |로 구성 파일, 파일, ... 표현
-#              with:
-#                host: ${{ secrets.EC2_HOST }}
-#                username: ${{ secrets.EC2_USERNAME }}
-#                key: ${{ secrets.EC2_KEY }}
-#                source: |
-#                  docker-compose.yml,
-#                  ./nginx/default.conf
-#                target: /home/ubuntu
-#
+            # eC2 서버로 필요 파일 업로드(YML, nginx/*.conf)
+            # Ec2 생성 -> 탄력적 ip 연결 > 활성화 이후
+            # EC2 접속
+            # docker-compose.yml, ./nginx/default.conf 업로드
+            # 타겟 : /home/ubuntu
+            - name: EC2 서버로 필요 파일 업로드
+              uses: appleboy/scp-action@v0.1.7
+              # 업로드 대상이 n개이면 |로 구성 파일, 파일, ... 표현
+              with:
+                host: ${{ secrets.EC2_HOST }}
+                username: ${{ secrets.EC2_USERNAME }}
+                key: ${{ secrets.EC2_KEY }}
+                source: |
+                  docker-compose.yml,
+                  ./nginx/default.conf
+                target: /home/ubuntu
+
 #    # 시스템 패키지 업데이트
 #    # sudo apt-get update
 #    # 필요한 패키지 설치
