@@ -12,7 +12,7 @@ FROM gradle:7.6-jdk AS builder
 WORKDIR /app
 
 # 호스트 OS에서 백엔드 원소스 전체 카피
-COPY ../../../Downloads .
+COPY . .
 
 # 빌드
 RUN chmod +x ./gradlew
